@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Commissioner Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        
+        :root {
+            --dark-bg: #0d0d0d;
+            --light-text: #f0f0f0;
+            --medium-text: #ccc;
+            --dark-accent: #1a1a1a;
+            --red-accent: #e65151;
+            --red-hover: #cc4242;
+            --blue-accent: #3f51b5;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--red-accent);
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px); 
+        }
+
+       
+        .header {
+            background-color: var(--dark-bg);
+            padding: 20px 0;
+            position: relative;
+            z-index: 100;
+        }
+
+        .header .logo img {
+            height: 45px; 
+            width: auto;
+        }
+
+        .header .contact-info {
+            color: var(--medium-text);
+            font-size: 0.95em;
+            letter-spacing: 0.5px; 
+        }
+
+        .header .menu-icon {
+            font-size: 1.6em;
+            cursor: pointer;
+            color: var(--light-text);
+        }
+
+        
+        .hero-section {
+            min-height: calc(100vh - 90px); 
+            display: flex;
+            align-items: center;
+            padding: 60px 0; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section .container {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px; 
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .left-content,
+        .right-content {
+            flex: 1;
+            min-width: 320px; 
+            padding: 20px;
+        }
+
+        .left-content {
+            text-align: left;
+        }
+
+        .left-content h1 {
+            font-size: 4.8em; 
+            font-weight: 700;
+            margin-bottom: 5px; 
+            line-height: 1.05;
+            letter-spacing: -1px; 
+        }
+
+        .left-content h1 span {
+            color: var(--red-accent);
+        }
+
+        .left-content .service-tag {
+            font-size: 1.6em; 
+            color: var(--medium-text);
+            margin-top: 0;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .hire-button {
+            background-color: var(--red-accent);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 8px; 
+            font-size: 1.15em;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(230, 81, 81, 0.3);
+        }
+
+        .hire-button:hover {
+            background-color: var(--red-hover);
+            box-shadow: 0 6px 20px rgba(230, 81, 81, 0.4); 
+        }
+
+        .social-links {
+            margin-top: 60px; 
+            display: flex;
+            gap: 25px;
+        }
+
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.7em; 
+            opacity: 0.7; 
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            opacity: 1; 
+            color: var(--red-accent);
+        }
+
+        .website-link {
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+            margin-top: 25px;
+            color: var(--medium-text);
+            font-size: 0.95em;
+            font-weight: 300;
+        }
+
+        .website-link img.dribbble-icon {
+            width: 28px; 
+            height: 28px;
+            border-radius: 50%;
+            filter: brightness(0.9); 
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 350px; 
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px; 
+            filter: brightness(0.7); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
+        }
+
+        .right-content {
+            text-align: left;
+        }
+
+        .right-content .expert-on {
+            color: var(--medium-text);
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase; 
+        }
+
+      
+        .show-expertise-btn {
+            background-color: transparent;
+            border: 2px solid var(--red-accent); 
+            color: var(--red-accent);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-bottom: 25px; 
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .show-expertise-btn:hover {
+            background-color: var(--red-accent);
+            color: var(--light-text);
+        }
+
+        .expertise-list-container {
+            max-height: 0; 
+            overflow: hidden;
+            transition: max-height 0.7s ease-out, opacity 0.5s ease-out; 
+            opacity: 0;
+        }
+
+        .expertise-list-container.show {
+            max-height: 500px; 
+            opacity: 1;
+        }
+
+        .right-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0; 
+            margin-bottom: 30px;
+        }
+
+        .right-content ul li {
+            background-color: var(--dark-accent);
+            padding: 15px 20px; 
+            margin-bottom: 12px; 
+            border-radius: 8px; 
+            font-size: 1.05em;
+            color: var(--medium-text);
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .right-content ul li:hover {
+            transform: translateX(5px);
+            background-color: #222222; 
+        }
+
+        .right-content ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: var(--red-accent);
+            font-size: 0.9em; 
+        }
+
+        .right-content ul li strong {
+            color: var(--light-text);
+            font-weight: 700; 
+        }
+
+        .download-cv {
+            color: var(--red-accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05em;
+        }
+
+    
+        .hero-section::before,
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.4; 
+            z-index: -1;
+            pointer-events: none; 
+        }
+
+        .hero-section::before {
+            width: 90px; 
+            height: 90px;
+            border: 3px solid var(--red-accent); 
+            top: 70px; 
+            right: 180px;
+            transform: rotate(60deg); 
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        }
+
+        .hero-section::after {
+            width: 25px; 
+            height: 25px;
+            background-color: var(--blue-accent);
+            top: 180px;
+            right: 230px;
+            box-shadow: 0 0 15px var(--blue-accent); 
+        }
+
+
+        .footer {
+            padding: 30px 0;
+            background-color: var(--dark-bg);
+            text-align: right;
+        }
+
+        .chat-button {
+            background-color: #222;
+            color: var(--light-text);
+            padding: 12px 25px;
+            border-radius: 25px; 
+            display: inline-flex;
+            align-items: center;
+            gap: 12px; 
+            font-size: 0.95em;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-button:hover {
+            background-color: #333;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+       
+        @media (max-width: 992px) {
+            .hero-section .container {
+                gap: 30px;
+                padding: 0 15px;
+            }
+
+            .left-content,
+            .right-content {
+                flex: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+                margin-bottom: 40px;
+                min-width: unset; 
+            }
+
+            .left-content h1 {
+                font-size: 3.5em;
+            }
+
+            .left-content .service-tag {
+                font-size: 1.3em;
+            }
+
+            .social-links,
+            .website-link {
+                justify-content: center;
+            }
+
+            .hero-section::before,
+            .hero-section::after {
+                display: none; 
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header .contact-info {
+                display: none;
+            }
+
+            .left-content h1 {
+                font-size: 2.8em;
+            }
+
+            .hire-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
+            .right-content .expert-on {
+                font-size: 1.1em;
+            }
+
+            .right-content ul li {
+                padding: 10px 15px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://th.bing.com/th/id/OIP.zCIWC4bPzCiUAdc5R7wkNwAAAA?r=0&rs=1&pid=ImgDetMain" alt="Academic Commissioner Service Logo">
+            </div>
+            <nav class="nav">
+                </nav>
+            <div class="contact-info">
+                <a href="mailto:helloacademicservice@email.com">helloacademicservice@email.com</a>
+            </div>
+            <div class="menu-icon">
+                <i class="fas fa-bars" onclick="alert('Mobile menu toggle functionality goes here!');"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="left-content">
+                    <h1>Hi, <br> I'm lio</h1>
+                    <p class="service-tag">Academic Commissioner Service</p>
+                    <a href="#about-me-section" class="hire-button">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/yourprofile" target="_blank" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="website-link">
+                        <img src="https://th.bing.com/th/id/OIP.zCIWC4bPzCiUAdc5R7wkNwAAAA?r=0&rs=1&pid=ImgDetMain" alt="Portfolio Icon" class="dribbble-icon">
+                        <span><a href="https://www.academicservice.com" target="_blank">www.academicservice.com</a></span>
+                    </div>
+                </div>
+                <div class="https://th.bing.com/th/id/OIP.zCIWC4bPzCiUAdc5R7wkNwAAAA?r=0&rs=1&pid=ImgDetMain">
+                    <img src="https://th.bing.com/th/id/OIP.zCIWC4bPzCiUAdc5R7wkNwAAAA?r=0&rs=1&pid=ImgDetMain" alt=" Academic Commissioner">
+                </div>
+                <div class="right-content">
+                    <p class="expert-on">My Expertise Includes</p>
+                    <button class="show-expertise-btn" id="toggleExpertiseBtn">Show My Expertise</button>
+
+                    <div class="expertise-list-container" id="expertiseList">
+                        <ul>
+                            <li><strong>Programming & Web Development:</strong> Making programming systems and websites.</li>
+                            <li><strong>Document Creation:</strong> Crafting research papers, portfolios, and resumes.</li>
+                            <li><strong>Code Fixing & Optimization:</strong> Debugging and improving existing codebases.</li>
+                            <li><strong>Video Editing:</strong> Creating and refining video content.</li>
+                            <li><strong>Assignment Assistance:</strong> Helping with various academic assignments.</li>
+                            <li>And more specialized academic support.</li>
+                        </ul>
+                    </div>
+                    <a href="path/to/your/service-brochure.pdf" class="download-cv" download="Academic_Service_Brochure.pdf">Download Service Brochure <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <button class="chat-button" onclick="window.open('https://m.me/yourfacebookmessengerid', '_blank');">
+                <span>Let's Chat</span>
+                <i class="fas fa-comment-dots"></i>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        
+        document.querySelector('.hire-button').addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault(); 
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+
+        
+        document.getElementById('toggleExpertiseBtn').addEventListener('click', function() {
+            const expertiseList = document.getElementById('expertiseList');
+            if (expertiseList.classList.contains('show')) {
+                expertiseList.classList.remove('show');
+                this.textContent = 'Show My Expertise';
+            } else {
+                expertiseList.classList.add('show');
+                this.textContent = 'Hide My Expertise';
+            }
+        });
+
+       
+        document.addEventListener('DOMContentLoaded', function() {
+            const main = document.querySelector('main');
+            const aboutSection = document.createElement('section');
+            aboutSection.id = 'about-me-section';
+            aboutSection.style.minHeight = '50vh';
+            aboutSection.style.padding = '50px 25px';
+            aboutSection.style.backgroundColor = '#1a1a1a';
+            aboutSection.style.color = '#f0f0f0';
+            aboutSection.style.display = 'flex';
+            aboutSection.style.alignItems = 'center';
+            aboutSection.style.justifyContent = 'center';
+            aboutSection.style.textAlign = 'center';
+            aboutSection.innerHTML = `
+                <div class="container">
+                    <div>
+                        <h2 style="font-size: 2.5em; margin-bottom: 20px; color: var(--red-accent);">About My Service</h2>
+                        <p style="max-width: 800px; margin: 0 auto; font-size: 1.1em; line-height: 1.8; color: var(--medium-text);">
+                            Welcome to Academic Commissioner Service! I am dedicated to providing tailored solutions for your academic and professional needs. With expertise in programming, web development, comprehensive document creation (research, portfolios, resumes), code debugging, video editing, and assignment support, I ensure high-quality and timely results. My goal is to streamline your processes and empower you to achieve academic excellence.
+                        </p>
+                    </div>
+                </div>
+            `;
+            main.after(aboutSection); 
+        });
+    </script>
+</body>
+</html>
